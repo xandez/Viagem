@@ -9,6 +9,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../Css/Viagem.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<title>Viagens</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -73,6 +74,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="exampleModalLongTitle">Cadastrar nova viagem</h5>
+					<span class="obrigatorio">Campo obrigatório*</span>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -82,20 +84,20 @@
 	      		  <div class="form-group">
 	      		  	<div class="row">
 	      		  		<div class="col">
-	      		  			<label for="Destino">Destino da Viagem</label>
-					   		 <input name="local" class="form-control" id="Destino" aria-describedby="emailHelp" placeholder="Destino">	
+	      		  			<label for="Destino">Destino da Viagem*</label>
+					   		 <input name="local" required class="form-control" id="Destino" aria-describedby="emailHelp" placeholder="Destino">	
 	      		  		</div>
 	      		  		<div class="col">
-	      		  			<label for="DataSaida">Data de Saida</label>
-					    	<input name="data" type="date" class="form-control" id="DataSaida" aria-describedby="emailHelp" placeholder="Destino">		
+	      		  			<label for="DataSaida">Data de Saida*</label>
+					    	<input name="data" required type="date" class="form-control" id="DataSaida" aria-describedby="emailHelp" placeholder="Destino">		
 	      		  		</div>					    
 					</div>
-				    <label for="Responsavel">Responsavel</label>
-				    <input name="Responsavel" class="form-control" id="Responsavel" placeholder="Nome">
-				    <label for="Telefone">Telefone</label>
-				    <input name="Telefone" class="form-control" id="Telefone" placeholder="">
-				    <label for="LocalSaida">Local de Saida</label>
-				    <input name="LocalSaida" class="form-control" id="LocalSaida" placeholder="">
+				    <label for="Responsavel">Responsavel*</label>
+				    <input name="Responsavel" required class="form-control" id="Responsavel" placeholder="Nome">
+				    <label for="Telefone">Telefone*</label>
+				    <input name="Telefone" required class="form-control" id="Telefone" placeholder="">
+				    <label for="LocalSaida">Local de Saida*</label>
+				    <input name="LocalSaida" required class="form-control" id="LocalSaida" placeholder="">
 				  </div>				  
 				  <button type="submit" class="btn btn-primary">Salvar</button>
 	      	</form>
