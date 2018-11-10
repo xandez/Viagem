@@ -47,6 +47,16 @@ class ViagemController{
 		}
 		
 	}
+
+	public function alterarStatus($id,$status){
+		ConexaoDB::conectar();
+
+		$viagem = new Viagem();
+		$viagem->set('id',$id);
+		$viagem->set('status',$status);
+
+		$viagem->alterarstatus();
+	}
 }
 
 

@@ -1,6 +1,7 @@
 <?php 
 	error_reporting(0);
 	require_once '../Control/Viagem_controller.php';
+	date_default_timezone_set('America/Sao_Paulo');
 
 
 ?>
@@ -35,6 +36,7 @@
 	  </thead>
 	  <tbody>  	  
 	<?php  
+	    $hora = date("d-m-Y");
 		$viagemcontroller = new ViagemController();
 		$status = 'Pendente';
 		$lista = $viagemcontroller->listarViagem();
@@ -44,11 +46,19 @@
 					echo '<tr>
 					       <th scope="row">'.$objeto->id.'</th>
 					       <td>'.$objeto->local.'</td>
-					       <td>'.date("d-m-y",strtotime($objeto->data)).'</td>
+					       <td>'.date("d-m-Y",strtotime($objeto->data)).'</td>
 					       <td>'.$objeto->viajante.'</td>
 					       <td>'.$objeto->telefone.'</td>
 					       <td>'.$objeto->localsaida.'</td>
-					       <td><span class="badge badge-success">'.$objeto->status.'</span></td>
+					       <td><span class="badge badge-success">';
+					       if ((date("d-m-Y",strtotime($objeto->data))-$hora) <0) {
+					       	$viagemcontroller->alterarStatus($objeto->id,'Finalizado');
+					       	echo $objeto->status;
+					       }else{
+					       	$viagemcontroller->alterarStatus($objeto->id,'Pendente');
+					       	echo $objeto->status;
+					       }
+					       echo '</span></td>
 					      </tr>';
 				}			
 			}else{

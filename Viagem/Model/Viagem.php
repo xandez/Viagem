@@ -3,6 +3,7 @@
 header('Content-Type: text/html; charset=utf-8');
 
 	class Viagem{
+		private $id;
 		private $local;
 		private $data;
 		private $viajante;
@@ -25,7 +26,7 @@ header('Content-Type: text/html; charset=utf-8');
 		}
 
 		public function listarviagem(){
-			$sql = "SELECT * FROM `viagem` ORDER BY `viagem`.`data` ASC";
+			$sql = "SELECT * FROM `viagem` ORDER BY `viagem`.`data` DESC";
 			$res = mysql_query($sql);
 			$lista = null;
 			while ($objeto = mysql_fetch_object($res)) {
@@ -36,6 +37,16 @@ header('Content-Type: text/html; charset=utf-8');
 				}
 			}
 			return $lista;
+		}
+
+		public function alterarstatus(){
+			$sql = "UPDATE viagem set status = '".$this->status."' where id ='".$this->id."'";
+
+			if (mysql_query($sql)) {
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 
